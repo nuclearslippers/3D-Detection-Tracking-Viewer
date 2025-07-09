@@ -35,15 +35,18 @@ class KittiDetectionDataset:
 
         return P2,V2C,points,image,labels,label_names
 
+
+
+# 补充自己实现的库函数
+from .kitti_lab import read_detection_2d_label
+
 class KittiTrackingDataset:
-    def __init__(self,root_path,seq_id,label_path=None):
+    def __init__(self,root_path,seq_id,det2d_path=None,label_path=None):
         self.seq_name = str(seq_id).zfill(4)
         self.root_path = root_path
         self.velo_path = os.path.join(self.root_path,"velodyne",self.seq_name)
         self.image_path = os.path.join(self.root_path,"image_02",self.seq_name)
         self.calib_path = os.path.join(self.root_path,"calib",self.seq_name)
-
-
 
         self.all_ids = os.listdir(self.velo_path)
         calib_path = self.calib_path + '.txt'
@@ -56,6 +59,11 @@ class KittiTrackingDataset:
         self.P2, self.V2C = read_calib(calib_path)
         self.labels, self.label_names = read_tracking_label(label_path)
 
+        # detection2d
+        if det2d_path is not None:    
+            self.lab = True
+            self.det2d_path = os.path.join(det2d_path, self.seq_name)
+
     def __len__(self):
         return len(self.all_ids)-1
     def __getitem__(self, item):
@@ -64,8 +72,6 @@ class KittiTrackingDataset:
 
         velo_path = os.path.join(self.velo_path,name+'.bin')
         image_path = os.path.join(self.image_path, name+'.png')
-
-
 
         points = read_velodyne(velo_path,self.P2,self.V2C)
         image = read_image(image_path)
@@ -80,4 +86,12 @@ class KittiTrackingDataset:
             labels = None
             label_names = None
 
-        return self.P2,self.V2C,points,image,labels,label_names
+        if self.det2d_path is not None:
+            det_2d_path = os.path.join(self.det2d_path,name+'.txt')
+            det_2d = read_detection_2d_label(det_2d_path)
+
+
+        if self.lab:
+            return self.P2,self.V2C,points,image,labels,label_names,det_2d
+        else:
+            return self.P2,self.V2C,points,image,labels,label_names

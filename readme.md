@@ -5,6 +5,9 @@ The main change is to vis detection result and tracking result(including single 
 
 ## TODO
 ✅ Building the running environment and fork the project
+
 ❎ Add 2d/3d detection result on the tracking viewer
+
 ❎ Add the single 2d/3d result on the tracking viewer
+
 ❎ Add the trajectory of each object

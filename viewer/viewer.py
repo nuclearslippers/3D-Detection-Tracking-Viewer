@@ -9,7 +9,7 @@ class Viewer:
     """
     default box type: "OpenPCDet", (x,y,z,l,w,h,yaw)
     """
-    def __init__(self,box_type = "OpenPCDet",bg=(255, 255, 255),show_det=False):
+    def __init__(self,box_type = "OpenPCDet",bg=(255, 255, 255)):
         self.objects_color_map = generate_objects_color_map('rainbow')
         self.box_type = box_type
         self.vi = Plotter(bg=bg)
@@ -26,22 +26,31 @@ class Viewer:
         self.boxes_info = [] # (boxes:array(N,7), ids:array(N,), colors:array(N,3) or str, box_info:list(N,))
         self.points_info = [] # (boxes:array(N,3), colors:array(N,3) or str)
         self.image = None
+        self.image_raw = None
         self.first_show = True
 
         # detection result
-        if show_det:
-            # 3d detection result
-            self.det_vi = Plotter(bg=(255, 255, 255))
-            self.det_actors = []
-            self.det_actors_without_del = []
-
-            # 2d detection result
-
-        else:
-            pass
 
 
+    #--------------------------------------------new fuction--------------------------------------------------
+    def show_det_2d(self,dets_2d):
+        # color = (0, 255, 0)
+        color = (244, 96, 73)
+        img = self.image_raw.copy()
+        for det in dets_2d:
+            cv2.rectangle(img, (int(det[0]), int(det[1])), (int(det[2]), int(det[3])), color, 2)
+        
 
+        cv2.namedWindow('Detection 2d')
+        cv2.moveWindow('Detection 2d', 1000, 600)
+        cv2.imshow("Detection 2d", img)
+        cv2.waitKey(10)
+
+
+
+
+
+    #--------------------------------------------new fuction--------------------------------------------------
 
 
     def set_lights(self):
@@ -399,6 +408,7 @@ class Viewer:
         :return:
         """
         self.image = im
+        self.image_raw = im.copy()
         return
 
     def show_3D(self):
@@ -520,7 +530,10 @@ class Viewer:
 
             self.image[y, x] = color
 
-        cv2.imshow('im',self.image)
+
+        cv2.namedWindow('Tracking results fused')
+        cv2.moveWindow('Tracking results fused', 1000, 200)
+        cv2.imshow('Tracking results fused',self.image)
         cv2.waitKey(10)
         self.points_info.clear()
         self.boxes_info.clear()

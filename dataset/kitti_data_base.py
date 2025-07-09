@@ -115,6 +115,12 @@ def read_detection_label(path):
     return np.array(boxes),np.array(names)
 
 def read_tracking_label(path):
+    '''
+    input: tracking label path
+    output: 
+        frame_dict: {frame_id(int): tracking results(list[list])} , list: [h, w, l, x, y, z, ry, ob_id]
+        names_dict: {frame_id(int): tracking names(list[str])}
+    '''
 
     frame_dict={}
 
