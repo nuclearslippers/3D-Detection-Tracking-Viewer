@@ -9,7 +9,7 @@ class Viewer:
     """
     default box type: "OpenPCDet", (x,y,z,l,w,h,yaw)
     """
-    def __init__(self,box_type = "OpenPCDet",bg=(255, 255, 255)):
+    def __init__(self,box_type = "OpenPCDet",bg=(255, 255, 255),show_det=False):
         self.objects_color_map = generate_objects_color_map('rainbow')
         self.box_type = box_type
         self.vi = Plotter(bg=bg)
@@ -27,6 +27,21 @@ class Viewer:
         self.points_info = [] # (boxes:array(N,3), colors:array(N,3) or str)
         self.image = None
         self.first_show = True
+
+        # detection result
+        if show_det:
+            # 3d detection result
+            self.det_vi = Plotter(bg=(255, 255, 255))
+            self.det_actors = []
+            self.det_actors_without_del = []
+
+            # 2d detection result
+
+        else:
+            pass
+
+
+
 
 
     def set_lights(self):

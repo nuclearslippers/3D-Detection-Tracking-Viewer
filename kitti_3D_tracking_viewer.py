@@ -3,9 +3,12 @@ import numpy as np
 from dataset.kitti_dataset import KittiTrackingDataset
 
 def kitti_viewer():
-    root="H:/data/tracking/training"
-    label_path = r"H:/data/tracking/training/label_02/0001.txt"
-    dataset = KittiTrackingDataset(root,seq_id=1,label_path=label_path)
+    # root="H:/data/tracking/training"
+    root="/home/xjc/dataset/kitti_tracking/training"
+    # label_path = r"H:/data/tracking/training/label_02/0001.txt"
+    label_path = "/home/xjc/workspace/fusiontrack/evaluation/results/sha_key/data/0001.txt"
+    sequence_id = 1
+    dataset = KittiTrackingDataset(root,seq_id=sequence_id,label_path=label_path)
 
     vi = Viewer(box_type="Kitti")
 
