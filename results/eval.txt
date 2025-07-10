@@ -1,0 +1,298 @@
+
+Eval Config:
+USE_PARALLEL         : False                         
+NUM_PARALLEL_CORES   : 8                             
+BREAK_ON_ERROR       : True                          
+RETURN_ON_ERROR      : False                         
+LOG_ON_ERROR         : /home/xjc/workspace/fusiontrack/evaluation_HOTA/error_log.txt
+PRINT_RESULTS        : True                          
+PRINT_ONLY_COMBINED  : False                         
+PRINT_CONFIG         : True                          
+TIME_PROGRESS        : True                          
+DISPLAY_LESS_PROGRESS : False                         
+OUTPUT_SUMMARY       : True                          
+OUTPUT_EMPTY_CLASSES : True                          
+OUTPUT_DETAILED      : True                          
+PLOT_CURVES          : True                          
+
+Kitti2DBox Config:
+PRINT_CONFIG         : True                          
+GT_FOLDER            : evaluation/data/tracking      
+TRACKERS_FOLDER      : evaluation/results            
+OUTPUT_FOLDER        : None                          
+TRACKERS_TO_EVAL     : None                          
+CLASSES_TO_EVAL      : ['car']                       
+SPLIT_TO_EVAL        : training                      
+INPUT_AS_ZIP         : False                         
+TRACKER_SUB_FOLDER   : data                          
+OUTPUT_SUB_FOLDER    :                               
+TRACKER_DISPLAY_NAMES : None                          
+
+CLEAR Config:
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Identity Config:
+THRESHOLD            : 0.5                           
+PRINT_CONFIG         : True                          
+
+Evaluating 1 tracker(s) on 21 sequence(s) for 1 class(es) on Kitti2DBox dataset using the following metrics: HOTA, CLEAR, Identity, Count
+
+
+Evaluating sha_key
+
+    Kitti2DBox.get_raw_seq_data(sha_key, 0000)                             0.0139 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0283 sec
+    HOTA.eval_sequence()                                                   0.0126 sec
+    CLEAR.eval_sequence()                                                  0.0022 sec
+    Identity.eval_sequence()                                               0.0016 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0000, sha_key)                                           0.0590 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0001)                             0.0469 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0882 sec
+    HOTA.eval_sequence()                                                   0.0929 sec
+    CLEAR.eval_sequence()                                                  0.0143 sec
+    Identity.eval_sequence()                                               0.0044 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0001, sha_key)                                           0.2476 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0002)                             0.0203 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0441 sec
+    HOTA.eval_sequence()                                                   0.0413 sec
+    CLEAR.eval_sequence()                                                  0.0063 sec
+    Identity.eval_sequence()                                               0.0018 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0002, sha_key)                                           0.1142 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0003)                             0.0110 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0284 sec
+    HOTA.eval_sequence()                                                   0.0294 sec
+    CLEAR.eval_sequence()                                                  0.0047 sec
+    Identity.eval_sequence()                                               0.0012 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0003, sha_key)                                           0.0749 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0004)                             0.0285 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0629 sec
+    HOTA.eval_sequence()                                                   0.0703 sec
+    CLEAR.eval_sequence()                                                  0.0108 sec
+    Identity.eval_sequence()                                               0.0026 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0004, sha_key)                                           0.1758 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0005)                             0.0401 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0677 sec
+    HOTA.eval_sequence()                                                   0.0658 sec
+    CLEAR.eval_sequence()                                                  0.0101 sec
+    Identity.eval_sequence()                                               0.0024 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0005, sha_key)                                           0.1867 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0006)                             0.0294 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0510 sec
+    HOTA.eval_sequence()                                                   0.0446 sec
+    CLEAR.eval_sequence()                                                  0.0072 sec
+    Identity.eval_sequence()                                               0.0022 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0006, sha_key)                                           0.1348 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0007)                             0.0683 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.1433 sec
+    HOTA.eval_sequence()                                                   0.1498 sec
+    CLEAR.eval_sequence()                                                  0.0209 sec
+    Identity.eval_sequence()                                               0.0065 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0007, sha_key)                                           0.3899 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0008)                             0.0407 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0786 sec
+    HOTA.eval_sequence()                                                   0.0715 sec
+    CLEAR.eval_sequence()                                                  0.0117 sec
+    Identity.eval_sequence()                                               0.0030 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0008, sha_key)                                           0.2060 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0009)                             0.0795 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.1301 sec
+    HOTA.eval_sequence()                                                   0.0933 sec
+    CLEAR.eval_sequence()                                                  0.0139 sec
+    Identity.eval_sequence()                                               0.0062 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0009, sha_key)                                           0.3240 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0010)                             0.0322 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0582 sec
+    HOTA.eval_sequence()                                                   0.0616 sec
+    CLEAR.eval_sequence()                                                  0.0097 sec
+    Identity.eval_sequence()                                               0.0025 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0010, sha_key)                                           0.1646 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0011)                             0.0543 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0757 sec
+    HOTA.eval_sequence()                                                   0.0796 sec
+    CLEAR.eval_sequence()                                                  0.0130 sec
+    Identity.eval_sequence()                                               0.0031 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0011, sha_key)                                           0.2263 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0012)                             0.0168 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0162 sec
+    HOTA.eval_sequence()                                                   0.0158 sec
+    CLEAR.eval_sequence()                                                  0.0025 sec
+    Identity.eval_sequence()                                               0.0006 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0012, sha_key)                                           0.0522 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0013)                             0.0217 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0472 sec
+    HOTA.eval_sequence()                                                   0.0127 sec
+    CLEAR.eval_sequence()                                                  0.0010 sec
+    Identity.eval_sequence()                                               0.0024 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0013, sha_key)                                           0.0855 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0014)                             0.0099 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0216 sec
+    HOTA.eval_sequence()                                                   0.0205 sec
+    CLEAR.eval_sequence()                                                  0.0034 sec
+    Identity.eval_sequence()                                               0.0009 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0014, sha_key)                                           0.0566 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0015)                             0.0318 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0718 sec
+    HOTA.eval_sequence()                                                   0.0691 sec
+    CLEAR.eval_sequence()                                                  0.0110 sec
+    Identity.eval_sequence()                                               0.0031 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0015, sha_key)                                           0.1871 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0016)                             0.0276 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0420 sec
+    HOTA.eval_sequence()                                                   0.0427 sec
+    CLEAR.eval_sequence()                                                  0.0069 sec
+    Identity.eval_sequence()                                               0.0015 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0016, sha_key)                                           0.1212 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0017)                             0.0108 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0161 sec
+    HOTA.eval_sequence()                                                   0.0000 sec
+    CLEAR.eval_sequence()                                                  0.0000 sec
+    Identity.eval_sequence()                                               0.0000 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0017, sha_key)                                           0.0272 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0018)                             0.0268 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.0665 sec
+    HOTA.eval_sequence()                                                   0.0632 sec
+    CLEAR.eval_sequence()                                                  0.0102 sec
+    Identity.eval_sequence()                                               0.0027 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0018, sha_key)                                           0.1701 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0019)                             0.1076 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.1836 sec
+    HOTA.eval_sequence()                                                   0.1483 sec
+    CLEAR.eval_sequence()                                                  0.0230 sec
+    Identity.eval_sequence()                                               0.0088 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0019, sha_key)                                           0.4726 sec
+    Kitti2DBox.get_raw_seq_data(sha_key, 0020)                             0.1045 sec
+    Kitti2DBox.get_preprocessed_seq_data(car)                              0.1735 sec
+    HOTA.eval_sequence()                                                   0.1774 sec
+    CLEAR.eval_sequence()                                                  0.0282 sec
+    Identity.eval_sequence()                                               0.0074 sec
+    Count.eval_sequence()                                                  0.0000 sec
+eval_sequence(0020, sha_key)                                           0.4921 sec
+
+All sequences for sha_key finished in 3.97 seconds
+
+HOTA: sha_key-car                  HOTA      DetA      AssA      DetRe     DetPr     AssRe     AssPr     LocA      RHOTA     HOTA(0)   LocA(0)   HOTALocA(0)
+0000                               79.609    77.504    82.105    86.83     84.092    89.988    88.242    91.34     84.387    86.183    90.774    78.232    
+0001                               84.232    82.967    85.704    87.942    89.318    89.501    91.967    91.126    86.809    92.091    90.37     83.222    
+0002                               57.312    49.363    66.845    50.795    87.426    69.456    90.248    87.432    58.23     66.051    85.689    56.598    
+0003                               81.609    82.145    81.151    85.377    88.558    84.97     87.535    88.639    83.229    93.043    87.421    81.339    
+0004                               84.877    83.676    86.2      86.308    90.676    88.575    91.718    89.779    86.252    95.409    88.635    84.566    
+0005                               80.915    78.93     83.388    81.741    90.124    85.639    92.949    89.563    82.515    90.863    88.305    80.236    
+0006                               86.37     85.397    87.553    87.653    90.55     89.595    92.268    89.482    87.59     96.857    88.598    85.814    
+0007                               86.462    85.502    87.584    90.453    88.474    91.75     90.365    90.06     88.984    96.363    89.287    86.04     
+0008                               81.026    80.245    82.007    82.884    87.393    84.646    88.69     87.007    82.378    95.079    85.568    81.357    
+0009                               81.908    80.646    83.439    84.275    88.5      86.865    90.019    89.126    83.831    92.406    87.945    81.267    
+0010                               82.665    80.917    84.59     83.421    91.985    86.475    93.152    90.858    84        91.168    89.889    81.95     
+0011                               78.413    76.385    80.684    79.087    89.833    82.871    91.748    89.406    79.877    88.185    88.266    77.838    
+0012                               82.919    82.586    83.264    84.836    89.203    85.242    89.637    88.232    84.011    95.213    87.177    83.003    
+0013                               88.646    88.646    88.646    90.526    90.526    90.526    90.526    89.24     89.529    100       88.23     88.23     
+0014                               80.228    78.061    82.89     81.701    86.992    86.045    89.679    87.353    82.243    93.013    85.538    79.562    
+0015                               80.891    80.284    81.542    83.472    87.351    84.357    88.525    87.126    82.472    95.387    85.44     81.499    
+0016                               84.199    82.451    86.975    84.273    87.956    88.272    92.026    87.149    85.435    95.932    86.103    82.6      
+0017                               0         0         0         0         0         0         0         100       0         0         100       0         
+0018                               87.973    87.101    89.043    89.853    90.744    91.644    92.267    89.965    89.419    98.162    89.112    87.474    
+0019                               84.143    83.01     85.332    87.07     89.362    88.002    91.257    89.747    86.178    95.377    88.61     84.513    
+0020                               79.281    78.267    80.482    81.449    89.437    82.889    91.344    89.327    80.96     89.413    88.087    78.762    
+COMBINED                           81.313    79.451    83.464    82.837    89.16     86.34     91.361    89.365    83.134    91.475    88.236    80.714    
+
+CLEAR: sha_key-car                 MOTA      MOTP      MODA      CLR_Re    CLR_Pr    MTR       PTR       MLR       sMOTA     CLR_TP    CLR_FN    CLR_FP    IDSW      MT        PT        ML        Frag      
+0000                               83.721    90.774    83.721    93.488    90.541    100       0         0         75.095    201       14        21        0         9         0         0         2         
+0001                               91.285    90.441    91.505    94.982    96.468    91.86     5.814     2.3256    82.205    2158      114       79        5         79        5         2         11        
+0002                               57.6      85.689    57.9      58        99.828    66.667    13.333    20        49.3      580       420       1         3         10        2         3         16        
+0003                               93.713    87.633    94.012    95.21     98.758    87.5      12.5      0         81.938    318       16        4         1         7         1         0         3         
+0004                               94.922    88.967    95.182    95.182    100       84.615    11.538    3.8462    84.42     731       37        0         2         22        3         1         5         
+0005                               90.282    88.399    90.365    90.532    99.817    78.788    21.212    0         79.78     1090      114       2         1         26        7         0         12        
+0006                               96.8      88.598    96.8      96.8      100       100       0         0         85.763    484       16        0         0         11        0         0         4         
+0007                               95.831    89.287    95.831    99.034    96.867    100       0         0         85.222    1948      19        63        0         53        0         0         0         
+0008                               94.841    85.568    94.841    94.841    100       90.476    9.5238    0         81.154    956       52        0         0         19        2         0         5         
+0009                               91.146    87.908    91.473    93.35     98.029    86.076    10.127    3.7975    79.859    2288      163       46        8         68        8         3         24        
+0010                               90.517    89.889    90.69     90.69     100       61.538    38.462    0         81.347    526       54        0         1         8         5         0         1         
+0011                               87.023    88.283    87.198    87.618    99.523    70.588    25.49     3.9216    76.757    2505      354       12        5         36        13        2         43        
+0012                               95.105    87.177    95.105    95.105    100       100       0         0         82.909    136       7         0         0         2         0         0         2         
+0013                               100       88.23     100       100       100       100       0         0         88.23     25        0         0         0         1         0         0         0         
+0014                               91.971    85.8      91.971    92.944    98.964    78.571    21.429    0         78.772    382       29        4         0         11        3         0         5         
+0015                               95.382    85.44     95.56     95.56     100       88.889    11.111    0         81.469    538       25        0         1         8         1         0         4         
+0016                               95.813    86.103    95.813    95.813    100       100       0         0         82.498    801       35        0         0         4         0         0         15        
+0017                               0         0         0         0         0         0         0         100       0         0         0         0         0         0         0         0         0         
+0018                               97.872    89.149    97.872    98.445    99.421    88.889    11.111    0         87.19     1203      19        7         0         16        2         0         2         
+0019                               94.75     88.61     94.75     96.093    98.622    100       0         0         83.805    787       32        11        0         6         0         0         3         
+0020                               89.516    88.129    89.679    90.374    99.237    78.095    20        1.9048    78.787    4422      471       34        8         82        21        2         53        
+COMBINED                           90.403    88.275    90.548    91.728    98.73     84.752    12.943    2.305     79.647    22079     1991      284       35        478       73        13        210       
+
+Identity: sha_key-car              IDF1      IDR       IDP       IDTP      IDFN      IDFP      
+0000                               91.991    93.488    90.541    201       14        21        
+0001                               94.522    93.794    95.262    2131      141       106       
+0002                               67.173    53.1      91.394    531       469       50        
+0003                               95.427    93.713    97.205    313       21        9         
+0004                               96.598    94.271    99.042    724       44        7         
+0005                               94.774    90.365    99.634    1088      116       4         
+0006                               98.374    96.8      100       484       16        0         
+0007                               97.939    99.034    96.867    1948      19        63        
+0008                               97.352    94.841    100       956       52        0         
+0009                               94.504    92.248    96.872    2261      190       73        
+0010                               94.937    90.517    99.81     525       55        1         
+0011                               92.746    87.198    99.046    2493      366       24        
+0012                               97.491    95.105    100       136       7         0         
+0013                               100       100       100       25        0         0         
+0014                               95.859    92.944    98.964    382       29        4         
+0015                               96.821    94.671    99.071    533       30        5         
+0016                               97.862    95.813    100       801       35        0         
+0017                               0         0         0         0         0         0         
+0018                               98.931    98.445    99.421    1203      19        7         
+0019                               97.341    96.093    98.622    787       32        11        
+0020                               92.095    87.983    96.611    4305      588       151       
+COMBINED                           94.015    90.681    97.603    21827     2243      536       
+
+Count: sha_key-car                 Dets      GT_Dets   IDs       GT_IDs    
+0000                               222       215       10        9         
+0001                               2237      2272      87        86        
+0002                               581       1000      16        15        
+0003                               322       334       8         8         
+0004                               731       768       25        26        
+0005                               1092      1204      33        33        
+0006                               484       500       11        11        
+0007                               2011      1967      55        53        
+0008                               956       1008      21        21        
+0009                               2334      2451      80        79        
+0010                               526       580       13        13        
+0011                               2517      2859      52        51        
+0012                               136       143       2         2         
+0013                               25        25        1         1         
+0014                               386       411       14        14        
+0015                               538       563       10        9         
+0016                               801       836       4         4         
+0017                               0         0         0         0         
+0018                               1210      1222      18        18        
+0019                               798       819       7         6         
+0020                               4456      4893      114       105       
+COMBINED                           22363     24070     581       564       
+
+Timing analysis:
+Kitti2DBox.get_raw_seq_data                                            0.8225 sec
+Kitti2DBox.get_preprocessed_seq_data                                   1.4946 sec
+HOTA.eval_sequence                                                     1.3624 sec
+CLEAR.eval_sequence                                                    0.2109 sec
+Identity.eval_sequence                                                 0.0648 sec
+Count.eval_sequence                                                    0.0000 sec
+eval_sequence                                                          3.9683 sec
+Evaluator.evaluate                                                     4.6373 sec

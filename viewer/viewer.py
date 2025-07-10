@@ -27,6 +27,7 @@ class Viewer:
         self.points_info = [] # (boxes:array(N,3), colors:array(N,3) or str)
         self.image = None
         self.image_raw = None
+        self.img_lab = None
         self.first_show = True
 
         # detection result
@@ -46,6 +47,35 @@ class Viewer:
         cv2.imshow("Detection 2d", img)
         cv2.waitKey(10)
 
+
+    def show_lab(self,gt_2d,labels_2d,frame):
+        gt_color = (255, 0, 0)
+        exp_color = (87, 139, 46)
+        self.img_lab = self.image_raw.copy()
+
+
+        # gt
+        if gt_2d is not None:
+            for gt in gt_2d:
+                cv2.rectangle(self.img_lab, (int(gt[1]), int(gt[2])), (int(gt[3]), int(gt[4])), gt_color, 2)
+                cv2.putText(self.img_lab, str(gt[0]), (int(gt[1]), int(gt[2])-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, gt_color, 2) # 字体，颜色，线条粗细
+        # tracking result(exp)
+        if labels_2d is not None:
+            for exp in labels_2d:
+                cv2.rectangle(self.img_lab, (int(exp[1]), int(exp[2])), (int(exp[3]), int(exp[4])), exp_color, 2)
+                cv2.putText(self.img_lab, str(exp[0]), (int(exp[3]), int(exp[4])-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, exp_color, 2)
+
+        # 添加图例
+        legend_x, legend_y = 10, 10
+        cv2.putText(self.img_lab, "Frame: " + str(frame), (legend_x, legend_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (60, 20, 220), 2)
+        cv2.putText(self.img_lab, "GT: Blue", (legend_x, legend_y + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, gt_color, 2)
+        cv2.putText(self.img_lab, "EXP: Green", (legend_x, legend_y + 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, exp_color, 2)
+
+
+        cv2.namedWindow('Lab')
+        cv2.moveWindow('Lab', 1000, 1000)
+        cv2.imshow("Lab", self.img_lab)
+        cv2.waitKey(10)
 
 
 
