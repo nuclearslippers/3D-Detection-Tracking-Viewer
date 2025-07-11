@@ -5,12 +5,16 @@ from dataset.kitti_dataset import KittiLabDataset
 def kitti_viewer():
     lab_mode = True
     root="/home/xjc/dataset/kitti_tracking/training"
-    label_path = "/home/xjc/workspace/fusiontrack/evaluation/results/sha_key/data/0001.txt"
+    label_path = "/home/xjc/workspace/fusiontrack/evaluation/results/sha_key/data/"
     det2d_path = "/home/xjc/workspace/fusiontrack/data/2d_detections/rrc/training"
+    det3d_path = "/home/xjc/workspace/fusiontrack/data/3d_detections/pointgnn/training/"
     gt_path = "/home/xjc/dataset/kitti_tracking/training/label_02"
-    sequence_id = 1
+    sequence_id = 10
+    label_path = label_path+str(sequence_id).zfill(4)+".txt"
+
     dataset = KittiLabDataset(root,seq_id=sequence_id,
                                    det2d_path=det2d_path,
+                                   det3d_path=det3d_path,
                                    label_path=label_path,
                                    gt=gt_path)
     vi = Viewer(box_type="Kitti")
@@ -18,7 +22,7 @@ def kitti_viewer():
 
 
     for i in range(len(dataset)):
-        P2, V2C, points, image, labels, label_names, det_2d, gt_2d, labels_2d = dataset[i]
+        P2, V2C, points, image, labels, label_names, det_2d, gt_2d, labels_2d, det_3d = dataset[i]
         frame = i
 
 
@@ -36,6 +40,7 @@ def kitti_viewer():
 
         vi.show_2D()
 
+        vi.show_det_3d(det_3d)
         vi.show_det_2d(det_2d)
         vi.show_lab(gt_2d,labels_2d,frame)
 

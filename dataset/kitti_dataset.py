@@ -97,10 +97,10 @@ class KittiTrackingDataset:
             return self.P2,self.V2C,points,image,labels,label_names
         
 
-from .kitti_lab import read_detection_2d_label,read_gt_2d,read_tracking_2d_label
+from .kitti_lab import read_detection_2d_label,read_gt_2d,read_tracking_2d_label,read_detection_3d_label
 
 class KittiLabDataset:
-    def __init__(self,root_path,seq_id,det2d_path=None,label_path=None,gt=None):
+    def __init__(self,root_path,seq_id,det2d_path=None,det3d_path=None,label_path=None,gt=None):
         self.seq_name = str(seq_id).zfill(4)
         self.root_path = root_path
         self.velo_path = os.path.join(self.root_path,"velodyne",self.seq_name)
@@ -122,6 +122,11 @@ class KittiLabDataset:
         # detection2d
         if det2d_path is not None:    
             self.det2d_path = os.path.join(det2d_path, self.seq_name)
+
+        # detection3d
+        if det3d_path is not None:    
+            self.det3d_box_path = os.path.join(det3d_path, "det_bboxes_3d", self.seq_name)
+            self.det3d_score_path = os.path.join(det3d_path, "det_scores", self.seq_name)
 
         # gt
         if gt is not None:
@@ -160,6 +165,16 @@ class KittiLabDataset:
             print("no det2d")
             det_2d = None
 
+        # 检测3d
+        if self.det3d_box_path is not None:
+            det3d_box_path = os.path.join(self.det3d_box_path,name+'.npy')
+            det3d_score_path = os.path.join(self.det3d_score_path,name+'.npy')
+            det3d = read_detection_3d_label(det3d_box_path,det3d_score_path)
+        else:
+            print("no det3d")
+            det3d = None
+            
+
 
         # 追踪/gt/检测都要有
         if self.gt_path is not None:
@@ -175,4 +190,4 @@ class KittiLabDataset:
             labels_2d = None
 
 
-        return self.P2,self.V2C,points,image,labels,label_names,det_2d,gt,labels_2d
+        return self.P2,self.V2C,points,image,labels,label_names,det_2d,gt,labels_2d,det3d

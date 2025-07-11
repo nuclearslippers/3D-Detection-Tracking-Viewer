@@ -43,7 +43,7 @@ class Viewer:
         
 
         cv2.namedWindow('Detection 2d')
-        cv2.moveWindow('Detection 2d', 1000, 600)
+        cv2.moveWindow('Detection 2d', 1350, 500)
         cv2.imshow("Detection 2d", img)
         cv2.waitKey(10)
 
@@ -73,11 +73,61 @@ class Viewer:
 
 
         cv2.namedWindow('Lab')
-        cv2.moveWindow('Lab', 1000, 1000)
+        cv2.moveWindow('Lab', 1350, 900)
         cv2.imshow("Lab", self.img_lab)
         cv2.waitKey(10)
 
 
+    def show_det_3d(self, det_3d):
+        """
+            det_3d: List(List)。内层的元素为[x,y,z,l,w,h,yaw,score]
+        """
+        color = (244, 96, 73)
+        img = self.image_raw.copy()
+
+        # 遍历每个3D检测结果
+        for det in det_3d:
+            x, y, z, l, w, h, yaw, score = det
+
+            # 将3D边界框转换为8个角点
+            box_points = get_box_points(np.array([x, y, z, l, w, h, yaw]), show_box_heading=False)
+
+            # 转换到相机坐标系
+            if self.cam_extrinsic_mat is not None:
+                box_points = velo_to_cam(box_points, self.cam_extrinsic_mat)
+
+            # 投影到2D平面
+            if self.cam_intrinsic_mat is not None:
+                all_img_pts = np.matmul(box_points, self.cam_intrinsic_mat.T)  # (N, 3)
+                valid_indices = np.where(all_img_pts[:, 2] > 0)[0]  # 过滤掉z<=0的点
+                img_pts = all_img_pts[valid_indices]
+
+                if len(img_pts) == 0:
+                    continue
+
+                x_2d = img_pts[:, 0] / img_pts[:, 2]
+                y_2d = img_pts[:, 1] / img_pts[:, 2]
+
+                # 确保投影点在图像范围内
+                H, W = self.image.shape[:2]
+                x_2d = np.clip(x_2d, 0, W - 1).astype(int)
+                y_2d = np.clip(y_2d, 0, H - 1).astype(int)
+
+                # 绘制矩形框
+                min_x, max_x = int(np.min(x_2d)), int(np.max(x_2d))
+                min_y, max_y = int(np.min(y_2d)), int(np.max(y_2d))
+                cv2.rectangle(img, (min_x, min_y), (max_x, max_y), color, 2)
+                
+                # 修改：将score限制为最多两位小数
+                score_str = f"{score:.2f}"
+                cv2.putText(img, str(score_str), (min_x, min_y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+
+
+        # 显示结果
+        cv2.namedWindow('Detection 3D')
+        cv2.moveWindow('Detection 3D', 50, 1000)
+        cv2.imshow("Detection 3D", img)
+        cv2.waitKey(10)
 
 
     #--------------------------------------------new fuction--------------------------------------------------
@@ -562,7 +612,7 @@ class Viewer:
 
 
         cv2.namedWindow('Tracking results fused')
-        cv2.moveWindow('Tracking results fused', 1000, 200)
+        cv2.moveWindow('Tracking results fused', 1350, 100)
         cv2.imshow('Tracking results fused',self.image)
         cv2.waitKey(10)
         self.points_info.clear()

@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 
 def read_detection_2d_label(path):
@@ -81,5 +82,34 @@ def read_tracking_2d_label(path,mask):
             if frame_id not in results:
                 results[frame_id] = []  # 初始化该帧的结果列表
             results[frame_id].append([track_id, x1, y1, x2, y2])  # 添加检测结果
+
+    return results
+
+
+
+def read_detection_3d_label(box_path, score_path):
+    """
+    输入是两个npy文件的路径，一个是检测结果，一个是得分
+    读取3D检测结果，返回一个二维列表，外层列表表示每一帧的检测结果，内层列表表示目标的检测结果
+        eg: [
+            [x,y,z,l,w,h,yaw,score],
+            [x,y,z,l,w,h,yaw,score]
+        ]
+    """
+    if not os.path.exists(box_path) or not os.path.exists(score_path):
+        assert False, f"One of the files does not exist: {box_path}, {score_path}"
+
+    # 加载 .npy 文件
+    boxes = np.load(box_path)
+    scores = np.load(score_path)
+
+    # 确保两个文件的数据长度一致
+    assert len(boxes) == len(scores), "The number of boxes and scores must match."
+
+    # 合并检测结果和得分
+    results = []
+    for box, score in zip(boxes, scores):
+        x, y, z, w, l, h, ry = box  # 解包边界框参数
+        results.append([x, y, z, w, l, h, ry, float(score)])  # 添加到结果列表
 
     return results
