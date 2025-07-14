@@ -50,7 +50,8 @@ class Viewer:
 
     def show_lab(self,gt_2d,labels_2d,frame):
         gt_color = (255, 0, 0)
-        exp_color = (87, 139, 46)
+        # exp_color = (87, 139, 46)
+        exp_color = (4,224,207)
         self.img_lab = self.image_raw.copy()
 
 

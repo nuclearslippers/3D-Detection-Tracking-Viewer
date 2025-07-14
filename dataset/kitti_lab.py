@@ -45,7 +45,11 @@ def read_gt_2d(path,frame):
     results = []
     for line in lines:
         values = line.strip().split()  # 按空格分割
+        # 筛选类别
         if values[2] != mask:
+            continue
+        # 过滤被截断的目标
+        if int(float(values[3])) == 1 or int(float(values[3])) == 2:
             continue
         if int(float(values[0])) == frame:
             results.append([int(float(values[1]))] + [float(x) for x in values[6:10]])  # track_id为int，其余为float

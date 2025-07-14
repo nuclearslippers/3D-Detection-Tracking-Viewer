@@ -9,7 +9,7 @@ def kitti_viewer():
     det2d_path = "/home/xjc/workspace/fusiontrack/data/2d_detections/rrc/training"
     det3d_path = "/home/xjc/workspace/fusiontrack/data/3d_detections/pointgnn/training/"
     gt_path = "/home/xjc/dataset/kitti_tracking/training/label_02"
-    sequence_id = 10
+    sequence_id = 20
     label_path = label_path+str(sequence_id).zfill(4)+".txt"
 
     dataset = KittiLabDataset(root,seq_id=sequence_id,
@@ -31,7 +31,7 @@ def kitti_viewer():
             labels = labels[mask]
             label_names = label_names[mask]
             vi.add_3D_boxes(labels, ids=labels[:, -1].astype(int), box_info=label_names,caption_size=(0.09,0.09))
-            vi.add_3D_cars(labels, ids=labels[:, -1].astype(int), mesh_alpha=1)
+            # vi.add_3D_cars(labels, ids=labels[:, -1].astype(int), mesh_alpha=1)
         vi.add_points(points[:,:3])
 
         vi.add_image(image)
